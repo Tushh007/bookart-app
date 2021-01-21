@@ -1,5 +1,5 @@
 module.exports = {
-    database: 'mongodb://localhost:27017/bookart',
+    database: 'mongodb+srv://bookartadmin:KUh15357FTAYSYVa@bookartapp.mrnpk.mongodb.net/bookartapp?retryWrites=true&w=majority',
     secret: 'yoursecret'
 }
 
