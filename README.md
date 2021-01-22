@@ -38,3 +38,4 @@ This web application is completely responsive.
 
 ## Application Sceenshots
 ![](screnshots/landing-page.png)
+<img src="screnshots/landing-page.png">
