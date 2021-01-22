@@ -14,23 +14,25 @@ export class AuthService {
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
 
   registerUser(user: User) {
-    return this.http.post('users/register', user);
+    return this.http.post('http://localhost:8080/users/register', user);
   }
 
   authenticateUser(user: { username: String; password: String }) {
-    return this.http.post('users/auth', user);
+    return this.http.post('http://localhost:8080/users/auth', user);
   }
 
   getProfile() {
-    this.loadToken();
-    const httpOptions = {
+    return this.http.get('http://localhost:8080/users/profile', this.setHeaders());
+  }
+
+  setHeaders() {
+    this.loadToken()
+    return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: this.authToken,
       }),
     };
-
-    return this.http.get('users/profile', httpOptions);
   }
 
   storeUserData(token: any, user: any) {
@@ -48,7 +50,7 @@ export class AuthService {
 
   loggedIn() {
     this.loadToken();
-    return this.jwtHelper.isTokenExpired(this.authToken);
+    return !this.jwtHelper.isTokenExpired(this.authToken);
   }
 
   logout() {

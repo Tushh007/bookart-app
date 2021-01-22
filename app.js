@@ -24,6 +24,7 @@ const app = express();
 
 // linking user routes
 const users = require('./routes/users');
+const books = require('./routes/books');
 
 // Port Number
 const port = process.env.PORT || 8080;
@@ -44,6 +45,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Setting up user routes
 app.use('/users', users);
+
+// Setting up book routes
+app.use('/books', books);
 
 // Index route
 app.get('/', (req, res) => {

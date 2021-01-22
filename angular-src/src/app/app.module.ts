@@ -16,6 +16,14 @@ import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthGuard } from './guards/auth.guard';
+import { CartComponent } from './components/cart/cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +34,8 @@ import { AuthGuard } from './guards/auth.guard';
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
+    CartComponent,
+    BookComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,13 +43,19 @@ import { AuthGuard } from './guards/auth.guard';
     HttpClientModule,
     FormsModule,
     FlashMessagesModule.forRoot(),
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule
   ],
   providers: [
     ValidateService,
     AuthGuard,
     AuthService,
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
   ],
   bootstrap: [AppComponent],
 })

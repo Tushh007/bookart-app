@@ -1,23 +1,24 @@
 <div class="jumbotron text-center">
     <h1>Bookart</h1>
-    <p class="lead">Welcome to Bookart</p>
+    <p class="lead">welcomes you</p>
     <div>
-        <a href="" class="btn btn-outline-primary" [routerLink]="['/login']">Login</a> &nbsp;
-        <a href="" class="btn btn-outline-primary" [routerLink]="['/register']">Register</a>
+        <a *ngIf="!authService.loggedIn()" class="btn btn-outline-primary" [routerLink]="['/login']">Login</a> &nbsp;
+        <a *ngIf="!authService.loggedIn()" class="btn btn-outline-primary" [routerLink]="['/register']">Register</a>
+        <a *ngIf="authService.loggedIn()" class="btn btn-outline-primary" [routerLink]="['/dashboard']">Shop Now</a>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h3>Express backend</h3>
-        <p>A rock solid node.js/Express server using Mongoose to organize models and query the database.</p>
+        <h3>Browse Books</h3>
+        <p>Surf your way throug to find books your like.</p>
     </div>
     <div class="col-md-4">
-        <h3>Angular-CLI</h3>
-        <p>Angular-CLI to generate components, services and more. Local dev server and easy compilation.</p>
+        <h3>Search your way</h3>
+        <p>Search, Sort and filter the books based on your criteria.</p>
     </div>
     <div class="col-md-4">
-        <h3>JWT Tokens</h3>
-        <p>Full features authentication using JSON web tokens. Login and store user data.</p>
+        <h3>Place your order</h3>
+        <p>Add books you like to your cart and place your order.</p>
     </div>
 </div>
