@@ -25,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { BookComponent } from './components/book/book.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatFormFieldModule,
     MatInputModule,
     MatSortModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [
     ValidateService,

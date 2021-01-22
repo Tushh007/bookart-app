@@ -77,7 +77,7 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
       .reduce((acc, value) => acc + value, 0);
   }
 
-  updateCart(cart: any, msg: any, timeout: number) {
+  updateCart(cart: any, msg: any, timeout: number): boolean {
     this.cartService
       .updateCart({ username: this.username, currentCart: cart })
       .subscribe((res) => {
@@ -88,17 +88,51 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
             cssClass: 'alert-success',
             timeout: timeout,
           });
-          this.router.navigate(['/']);
+          return true
         } else {
           this.flashMessage.show(`something went wrong`, {
             cssClass: 'alert-danger',
             timeout: 5000,
           });
+          return false;
         }
       });
+      return true;
   }
 
   placeOrder() {
-    this.updateCart([], 'Your order has been successfully placed.', 10000);
+    if(this.currentCart.length > 0) {
+      const orderStatus = this.updateCart([], 'Your order has been successfully placed.', 10000);
+      if(orderStatus) this.router.navigate(['/']);
+    } else {
+      this.flashMessage.show(`Cart Empty`, {
+        cssClass: 'alert-danger',
+        timeout: 5000,
+      });
+    }
+  }
+
+  updateQuantity(item: any, action: any) {
+    const book = this.currentCart.findIndex(
+      (cartItem) => cartItem.book._id === item.book._id
+    );
+    
+    if (action === 'delete') {
+      this.currentCart.splice(book, 1);
+      this.dataSource = new MatTableDataSource(this.currentCart);
+    } else {
+      if(action === 'increase') {
+        this.currentCart[book].quantity += 1
+      }
+  
+      if (action === 'decrease' && this.currentCart[book].quantity > 1) {
+        this.currentCart[book].quantity -= 1
+      }
+
+      this.currentCart[book].totalAmount = this.currentCart[book].quantity * item.book.price;
+    }
+
+    this.updateCart(this.currentCart, 'Cart Updated Successfully', 2000);
+
   }
 }

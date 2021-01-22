@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private cartService: CartService,
     private router: Router,
     private flashMessage: FlashMessagesService
   ) {}
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
       this.authData = data;
       if (this.authData.success) {
         this.authService.storeUserData(this.authData.token, this.authData.user);
+        this.cartService.setcurrentCartValue(this.authData.user.cart);
         this.flashMessage.show('You are now logged in', {
           cssClass: 'alert-success',
           timeout: 5000,
