@@ -28,7 +28,7 @@ export class BookComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private flashMessage: FlashMessagesService
   ) {
-    this.username = this.authService.getUserDetails().username
+    this.username = this.authService.getUserDetails().username;
     this.subscription = this.cartService.currentCart.subscribe((x) => {
       this.currentCart = x;
     });
@@ -64,28 +64,27 @@ export class BookComponent implements OnInit, OnDestroy {
     } else this.currentCart.push(newbook);
 
     // adding to localstorage and to the backend
-    this.cartService.updateCart({username: this.username, currentCart: this.currentCart}).subscribe((res) => {
-      this.cartStatus = res;
-      if (this.cartStatus.success) {
-        this.cartService.setcurrentCartValue(this.currentCart);
-        this.flashMessage.show(
-          `${this.quantity} x ${this.book.name} worth ₹ ${
-            this.quantity * this.book.price
-          } successfully added to the cart!`,
-          {
-            cssClass: 'alert-success',
-            timeout: 5000,
-          }
-        );
-      } else {
-        this.flashMessage.show(
-          `something went wrong`,
-          {
+    this.cartService
+      .updateCart({ username: this.username, currentCart: this.currentCart })
+      .subscribe((res) => {
+        this.cartStatus = res;
+        if (this.cartStatus.success) {
+          this.cartService.setcurrentCartValue(this.currentCart);
+          this.flashMessage.show(
+            `${this.quantity} x ${this.book.name} worth ₹ ${
+              this.quantity * this.book.price
+            } successfully added to the cart!`,
+            {
+              cssClass: 'alert-success',
+              timeout: 5000,
+            }
+          );
+        } else {
+          this.flashMessage.show(`something went wrong`, {
             cssClass: 'alert-danger',
             timeout: 5000,
-          }
-        );
-      }
-    });
+          });
+        }
+      });
   }
 }

@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 
 const User = require('../models/users');
-const { hash } = require('bcryptjs');
+const { findOne } = require('../models/users');
 
 // Register
 router.post('/register', (req, res, next) => {
@@ -51,6 +51,7 @@ router.post('/auth', (req, res, next) => {
             name: user.name,
             username: user.username,
             email: user.email,
+            cart: user.cart,
           },
         });
       } else {
@@ -61,8 +62,29 @@ router.post('/auth', (req, res, next) => {
 });
 
 // Profile
-router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
-  res.send({user: req.user});
+router.get(
+  '/profile',
+  passport.authenticate('jwt', { session: false }),
+  (req, res, next) => {
+    res.send({ user: req.user });
+  }
+);
+
+// Cart
+router.patch('/cart', async (req, res, next) => {
+  const cartDetails = req.body;
+  const currentCart = cartDetails.currentCart
+
+  if (!cartDetails.username) {
+    return res.json({ success: false, msg: 'Invalid request' });
+  }
+  const result = await User.findOneAndUpdate(
+    { username: cartDetails.username },
+    { cart: currentCart },
+    { new: true, useFindAndModify: false }
+  );
+  if (result) res.send({ success: true, msg: 'Cart updated successfully.' });
+  else res.send({ success: false, msg: 'Something went wrong.' });
 });
 
 module.exports = router;

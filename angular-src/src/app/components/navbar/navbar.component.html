@@ -35,7 +35,7 @@
             </li>
 
             <li *ngIf="authService.loggedIn()"class="nav-item active" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                <a class="nav-link" [routerLink]="['/cart']"><span matBadge="0" matBadgeOverlap="false">Cart</span></a>
+                <a class="nav-link" [routerLink]="['/cart']">Cart</a>
             </li>
 
             <li *ngIf="authService.loggedIn()" class="nav-item">

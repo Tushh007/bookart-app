@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const config = require('../config/database');
 
 // Book Schema
 const BookSchema = mongoose.Schema({
@@ -32,11 +30,7 @@ const BookSchema = mongoose.Schema({
 
 const Book = (module.exports = mongoose.model('Book', BookSchema));
 
-module.exports.getBookById = function (id, callback) {
-  Book.findById(id, callback);
-};
-
-module.exports.getBookByName= function (name, callback) {
+module.exports.getBookByName = function (name, callback) {
   const query = { name: name };
   Book.findOne(query, callback);
 };

@@ -4,44 +4,39 @@
 </mat-form-field>
 
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-    <!-- Position Column -->
+    
     <ng-container matColumnDef="imageUrl">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Book </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Book </mat-header-cell>
       <mat-cell *matCellDef="let element"> <img [src]="element.imageUrl" style="width:145px; height:125px;" /> </mat-cell>
     </ng-container>
   
-    <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="rating">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Rating </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.rating}} / 5 </mat-cell>
       </ng-container>
   
-    <!-- Weight Column -->
     <ng-container matColumnDef="genres">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Genres </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.genres}} </mat-cell>
     </ng-container>
   
-    <!-- Symbol Column -->
     <ng-container matColumnDef="authors">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Authors </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.authors}} </mat-cell>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="price">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
-        <mat-cell *matCellDef="let element"> ₹ {{element.price}} </mat-cell>
+        <mat-cell *matCellDef="let element">{{element.price | currency:'INR' }} </mat-cell>
       </ng-container>
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="bookDetails(row)"></mat-row>
   </mat-table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[3, 5, 10, 25, 100]"></mat-paginator>
 

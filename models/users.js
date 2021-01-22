@@ -10,14 +10,20 @@ const UserSchema = mongoose.Schema({
   email: {
     type: String,
     require: true,
+    unique: true,
   },
   username: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
     required: true,
+  },
+  cart: {
+    type: Array,
+    default: [],
   },
 });
 
