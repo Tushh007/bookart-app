@@ -37,5 +37,17 @@ This web application is completely responsive.
   8. Book Delete By Id: localhost:8080/books/delete/:id
 
 ## Application Sceenshots
+1. Landing/Home page
 ![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/landing-page.png)
-<img src="screnshots/landing-page.png" width=200>
+
+2. Login page
+
+3. Register page
+
+4. Dashboard page
+
+5. Book page
+
+6. Profile page
+
+7. Cart page
