@@ -22,11 +22,19 @@ export class AuthService {
   }
 
   getProfile() {
-    return this.http.get('http://localhost:8080/users/profile', this.setHeaders());
+    return this.http.get(
+      'http://localhost:8080/users/profile',
+      this.setHeaders()
+    );
+  }
+
+  getUserDetails() {
+    this.loadToken();
+    return this.user;
   }
 
   setHeaders() {
-    this.loadToken()
+    this.loadToken();
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -36,16 +44,14 @@ export class AuthService {
   }
 
   storeUserData(token: any, user: any) {
-    localStorage.setItem('id_token', token);
+    localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
-
-    this.authToken = token;
-    this.user = user;
+    localStorage.setItem('cart', JSON.stringify(user.cart));
   }
 
   loadToken() {
-    const token = localStorage.getItem('id_token');
-    this.authToken = token;
+    this.authToken = localStorage.getItem('token');
+    this.user = JSON.parse(localStorage.getItem('user') || 'null');
   }
 
   loggedIn() {
