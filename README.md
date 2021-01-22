@@ -39,15 +39,33 @@ This web application is completely responsive.
 ## Application Sceenshots
 1. Landing/Home page
 ![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/landing-page.png)
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-landing-page.png)
 
 2. Login page
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/login-page.png)
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-login-page.png)
 
-3. Register page
+3. Loggedin Landing/Home page
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/;pggedin-home-page.png)
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-loggedin-home-page.png)
 
-4. Dashboard page
 
-5. Book page
+4. Register page
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/register-page.png)
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-register-page.png)
 
-6. Profile page
+5. Dashboard page
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/dashboard-page.png)
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-dashboard-page.png)
 
-7. Cart page
+6. Book page
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/book-page.png)
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-book-page.png)
+
+7. Profile page
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/book-page.png)
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-book-page.png)
+
+8. Cart page
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/cart-page.png)
+![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-cart-page.png)
