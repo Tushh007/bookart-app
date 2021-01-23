@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "600ab35141f4a21b9489d474"
+  },
+  "imageUrl": "https://m.media-amazon.com/images/I/511HccWipML.jpg",
+  "name": "Ikigai: The Japanese secret to a long and happy life",
+  "price": 299,
+  "rating": 4.6,
+  "authors": "Héctor García, Francesc Miralles",
+  "genres": "New Age & Spirituality",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600ab44a41f4a21b9489d477"
+  },
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/62/Kite_runner.jpg",
+  "name": "The Kite Runner",
+  "price": 330,
+  "rating": 4.3,
+  "authors": "Khaled Hosseini",
+  "genres": "Fiction",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600b39633fce0162a0753557"
+  },
+  "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg",
+  "name": "The Alchemist",
+  "price": 206,
+  "rating": 4.6,
+  "authors": "Paulo Coelho",
+  "genres": "Novel, Allegory, Drama, Quest, Fantasy Fiction, Adventure fiction",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600b39e63fce0162a0753558"
+  },
+  "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51D5WCAoebL._SX310_BO1,204,203,200_.jpg",
+  "name": "One Arranged Murder",
+  "price": 123,
+  "rating": 4.2,
+  "authors": "Chetan Bhagat",
+  "genres": "Crime, Thriller & Mystery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600b3a873fce0162a0753559"
+  },
+  "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/41F8ATXoMOL._SX317_BO1,204,203,200_.jpg",
+  "name": "Attitude Is Everything: Change Your Attitude ... Change Your Life!",
+  "price": 151,
+  "rating": 4.5,
+  "authors": "Jeff Keller",
+  "genres": "Psychology",
+  "__v": 0
+}]
