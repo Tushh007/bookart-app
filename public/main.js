@@ -18,16 +18,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class BookService {
+    // httpOptions = this.authService.setHeaders();
     constructor(http, authService) {
         this.http = http;
         this.authService = authService;
-        this.httpOptions = this.authService.setHeaders();
     }
     getAllBooks() {
-        return this.http.get('books/retrive/all', this.httpOptions);
+        return this.http.get('books/retrive/all'
+        // , this.httpOptions
+        );
     }
     getBookById(id) {
-        return this.http.get(`books/retrive/${id}`, this.httpOptions);
+        return this.http.get(`books/retrive/${id}`
+        // , this.httpOptions
+        );
     }
 }
 BookService.ɵfac = function BookService_Factory(t) { return new (t || BookService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"])); };
@@ -1585,10 +1589,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class CartService {
+    // httpOptions = this.authService.setHeaders();
     constructor(http, authService) {
         this.http = http;
         this.authService = authService;
-        this.httpOptions = this.authService.setHeaders();
         this.currentCartSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](JSON.parse(localStorage.getItem('cart') || '[]'));
         this.currentCart = this.currentCartSubject.asObservable();
     }
@@ -1597,7 +1601,10 @@ class CartService {
         this.currentCartSubject.next(cart);
     }
     updateCart(updatedCart) {
-        return this.http.patch('users/cart', updatedCart, this.httpOptions);
+        return this.http.patch('users/cart', updatedCart
+        // ,
+        // this.httpOptions
+        );
     }
     logout() {
         this.currentCartSubject.next([]);
@@ -1858,7 +1865,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 class AuthService {
     constructor(http, jwtHelper) {
         this.http = http;
@@ -1871,21 +1877,23 @@ class AuthService {
         return this.http.post('users/auth', user);
     }
     getProfile() {
-        return this.http.get('users/profile', this.setHeaders());
+        return this.http.get('users/profile'
+        // this.setHeaders()
+        );
     }
     getUserDetails() {
         this.loadToken();
         return this.user;
     }
-    setHeaders() {
-        this.loadToken();
-        return {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                Authorization: this.authToken,
-            }),
-        };
-    }
+    // setHeaders() {
+    //   this.loadToken();
+    //   return {
+    //     headers: new HttpHeaders({
+    //       'Content-Type': 'application/json',
+    //       Authorization: this.authToken,
+    //     }),
+    //   };
+    // }
     storeUserData(token, user) {
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));

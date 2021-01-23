@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { HttpHeaders } from '@angular/common/http';
+// import { HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -23,8 +23,8 @@ export class AuthService {
 
   getProfile() {
     return this.http.get(
-      'users/profile',
-      this.setHeaders()
+      'users/profile'
+      // this.setHeaders()
     );
   }
 
@@ -33,15 +33,15 @@ export class AuthService {
     return this.user;
   }
 
-  setHeaders() {
-    this.loadToken();
-    return {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: this.authToken,
-      }),
-    };
-  }
+  // setHeaders() {
+  //   this.loadToken();
+  //   return {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       Authorization: this.authToken,
+  //     }),
+  //   };
+  // }
 
   storeUserData(token: any, user: any) {
     localStorage.setItem('token', token);

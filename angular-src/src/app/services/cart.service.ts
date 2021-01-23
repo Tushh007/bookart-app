@@ -11,7 +11,7 @@ export class CartService {
   private currentCartSubject: BehaviorSubject<Cart[]>;
   public currentCart: Observable<Cart[]>;
 
-  httpOptions = this.authService.setHeaders();
+  // httpOptions = this.authService.setHeaders();
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.currentCartSubject = new BehaviorSubject<Cart[]>(
@@ -28,8 +28,9 @@ export class CartService {
   updateCart(updatedCart: any) {
     return this.http.patch(
       'users/cart',
-      updatedCart,
-      this.httpOptions
+      updatedCart
+      // ,
+      // this.httpOptions
     );
   }
 

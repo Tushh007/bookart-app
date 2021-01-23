@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 
 const Book = require('../models/books');
-
+//  passport.authenticate('jwt', {session:false}) - removed from all routes... production issue
 // Create Book
-router.post('/add', passport.authenticate('jwt', {session:false}),  (req, res, next) => {
+router.post('/add',  (req, res, next) => {
   let newBook = new Book({
     name: req.body.name,
     imageUrl: req.body.imageUrl,
@@ -27,12 +27,12 @@ router.post('/add', passport.authenticate('jwt', {session:false}),  (req, res, n
 });
 
 // Retrive All Books
-router.get('/retrive/all', passport.authenticate('jwt', {session:false}),  (req, res, next) => {
+router.get('/retrive/all',  (req, res, next) => {
   Book.find((err, books) => res.json(books));
 });
 
 // Retrive Book by Id
-router.get('/retrive/:id', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+router.get('/retrive/:id', (req, res, next) => {
   Book.findById(req.params.id, (err, book) => {
     if (err) res.json(err);
     else res.json(book);
@@ -40,7 +40,7 @@ router.get('/retrive/:id', passport.authenticate('jwt', {session:false}), (req, 
 });
 
 // delete book
-router.delete('/delete/:id', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+router.delete('/delete/:id', (req, res, next) => {
   Book.remove({ _id: req.params.id }, (err, book) => {
     if (err) res.json(err);
     else res.json(book);

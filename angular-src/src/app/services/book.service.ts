@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 
@@ -6,15 +6,19 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class BookService {
-  httpOptions = this.authService.setHeaders();
+  // httpOptions = this.authService.setHeaders();
   
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getAllBooks() {
-    return this.http.get('books/retrive/all', this.httpOptions);
+    return this.http.get('books/retrive/all'
+    // , this.httpOptions
+    );
   }
 
   getBookById(id: string) {
-    return this.http.get(`books/retrive/${id}`, this.httpOptions);
+    return this.http.get(`books/retrive/${id}`
+    // , this.httpOptions
+    );
   }
 }
