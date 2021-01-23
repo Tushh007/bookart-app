@@ -27,7 +27,7 @@ const users = require('./routes/users');
 const books = require('./routes/books');
 
 // Port Number
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 
 // MIDDLEWARE: cors - allows requests to the api from different domain name
 app.use(cors());
