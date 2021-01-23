@@ -27,7 +27,7 @@ export class CartService {
 
   updateCart(updatedCart: any) {
     return this.http.patch(
-      'http://localhost:8080/users/cart',
+      'users/cart',
       updatedCart,
       this.httpOptions
     );

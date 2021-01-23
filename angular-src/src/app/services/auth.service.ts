@@ -14,16 +14,16 @@ export class AuthService {
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
 
   registerUser(user: User) {
-    return this.http.post('http://localhost:8080/users/register', user);
+    return this.http.post('users/register', user);
   }
 
   authenticateUser(user: { username: String; password: String }) {
-    return this.http.post('http://localhost:8080/users/auth', user);
+    return this.http.post('users/auth', user);
   }
 
   getProfile() {
     return this.http.get(
-      'http://localhost:8080/users/profile',
+      'users/profile',
       this.setHeaders()
     );
   }

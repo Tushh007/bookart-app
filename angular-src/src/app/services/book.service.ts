@@ -11,10 +11,10 @@ export class BookService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getAllBooks() {
-    return this.http.get('http://localhost:8080/books/retrive/all', this.httpOptions);
+    return this.http.get('books/retrive/all', this.httpOptions);
   }
 
   getBookById(id: string) {
-    return this.http.get(`http://localhost:8080/books/retrive/${id}`, this.httpOptions);
+    return this.http.get(`books/retrive/${id}`, this.httpOptions);
   }
 }
