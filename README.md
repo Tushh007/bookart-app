@@ -22,6 +22,8 @@ This web application is completely responsive.
 1. ### **Running in Development environment**
   1. Installing application dependencies: npm install
   2. Running application: npm run dev
+  3. User database configuation as per your choice - local or hostedbDB. Check database config file and comment out parts accordingly.
+  4. Incase of local instance of the db is used. please injest books collection for ease of using app.
 
 ## **Routes &amp; Endpoints | Development environment**
 
