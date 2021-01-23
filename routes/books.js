@@ -40,7 +40,7 @@ router.get('/retrive/:id', passport.authenticate('jwt', {session:false}), (req, 
 });
 
 // delete book
-router.delete('/delete/:id', (req, res, next) => {
+router.delete('/delete/:id', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   Book.remove({ _id: req.params.id }, (err, book) => {
     if (err) res.json(err);
     else res.json(book);

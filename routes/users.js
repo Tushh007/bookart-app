@@ -71,7 +71,7 @@ router.get(
 );
 
 // Cart
-router.patch('/cart', async (req, res, next) => {
+router.patch('/cart', passport.authenticate('jwt', { session: false }), async (req, res, next) => {
   const cartDetails = req.body;
   const currentCart = cartDetails.currentCart
 
