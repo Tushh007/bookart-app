@@ -24,10 +24,10 @@ class BookService {
         this.httpOptions = this.authService.setHeaders();
     }
     getAllBooks() {
-        return this.http.get('http://localhost:8080/books/retrive/all', this.httpOptions);
+        return this.http.get('books/retrive/all', this.httpOptions);
     }
     getBookById(id) {
-        return this.http.get(`http://localhost:8080/books/retrive/${id}`, this.httpOptions);
+        return this.http.get(`books/retrive/${id}`, this.httpOptions);
     }
 }
 BookService.ɵfac = function BookService_Factory(t) { return new (t || BookService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"])); };
@@ -1597,7 +1597,7 @@ class CartService {
         this.currentCartSubject.next(cart);
     }
     updateCart(updatedCart) {
-        return this.http.patch('http://localhost:8080/users/cart', updatedCart, this.httpOptions);
+        return this.http.patch('users/cart', updatedCart, this.httpOptions);
     }
     logout() {
         this.currentCartSubject.next([]);
@@ -1865,13 +1865,13 @@ class AuthService {
         this.jwtHelper = jwtHelper;
     }
     registerUser(user) {
-        return this.http.post('http://localhost:8080/users/register', user);
+        return this.http.post('users/register', user);
     }
     authenticateUser(user) {
-        return this.http.post('http://localhost:8080/users/auth', user);
+        return this.http.post('users/auth', user);
     }
     getProfile() {
-        return this.http.get('http://localhost:8080/users/profile', this.setHeaders());
+        return this.http.get('users/profile', this.setHeaders());
     }
     getUserDetails() {
         this.loadToken();
