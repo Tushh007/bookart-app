@@ -40,6 +40,7 @@ This web application is completely responsive.
 
 ## Application Sceenshots
 1. Landing/Home page
+![](https://i.ibb.co/nLC356V/catagory-page.png)
 ![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/landing-page.png)
 ![](https://github.com/Tushh007/bookart-app/blob/master/screenshots/responsive-landing-page.png)
 
